@@ -84,7 +84,7 @@ Imię i nazwisko:\\ 1. Axel Zuziak\\ 2. Marcin Węglarz \end{tabular}}
 LABOLATORIUM\\ TECHNIK \\ JĄDROWYCH\end{tabular}} &
 \multicolumn{4}{l|}{ Temat:\textbf{ Wyznaczanie czasu połowicznego rozpadu
 		izotopów krótkotrwałych.} }                                                                                                                       & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}
-Nr ćwiczenia\\ \textbf{06}
+Nr ćwiczenia\\ \textbf{1+9}
 \end{tabular}} \\ \hline
 \begin{tabular}[c]{@{}c@{}}
 Data wykonania:\\ 04.03.2015
@@ -110,7 +110,215 @@ OCENA:\\
 \end{table}
 %-----Koniec tabeli------
 
-%WSTĘP++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{Statystyczny charakter rozpadów promieniotwórczych}
+\subsection{Cel ćwiczenia}
+Celem ćwiczenia jest praktyczne zapoznanie się ze statystycznym charakterem rozpadów promieniotwórczych oraz wyznaczaniem histogramów rozkładów Poissona i Gaussa. Wyznaczono również charakterystykę licznika Geigera-Mullera.
+\subsection{Wstęp teoretyczny}
+Charakterystyką licznika Geigera-Mullera nazywamy zależność między częstością zliczeń rejestrowanych impulsów i napięciem zasilania licznika, przy stałym strumieniu padających na licznik cząstek i stałym poziomie progu dyskryminacji elektronicznej. Wykres [\ref{charakterystyka}] przedstawia prostoliniowy odcinek o niewielkim nachyleniu zwany $plateau$ licznika. Wartość $U_A$ nazywamy progiem geigerowskim. Nachylenie plateau $\alpha$ jest zdefiniowane jako przyrost liczby zliczeń przypadający na 100V wzrostu napięcia zasilania w zakresie plateau:
+\begin{equation}
+\label{nachylenie}
+	 \alpha = \frac{(J_B - J_A)}{J_A}
+\end{equation}
+Rozkład Poissona jest to dyskretny rozkład prawdopodobieństwa, wyrażający prawdopodobieństwo szeregu zdarzeń, gdy występują one ze znaną średnią częstością. Wzór opisujący taki rozkład można zapisać:
+\begin{equation}
+\label{poisson}
+	f(k,\lambda) = \frac{\lambda^k \cdot e^{-k}}{k!}
+\end{equation}
+Rozkład Gaussa jest w przeciwieństwie do rozkładu Poissona rozkładem ciągłym. Jego maksimum przypada na wartość oczekiwaną:
+\begin{equation}
+	\label{gauss}
+	\Phi_{\mu,\sigma}(x) = \frac{1}{\sigma\sqrt{2\pi}}\exp{\left[\frac{-(x-\mu)^2}{2\sigma^2} \right]}
+\end{equation}
+Często stosowanym testem statystycznym jest test chi-kwadrat ($\chi^2$). Pozwala on określić czy wyniki danych pomiarów są zgodne, na określonym przedziale ufności z wynikami oczekiwanymi.
+\begin{equation}
+	\label{chi}
+	\chi^2 = \sum_{i=1}^{r}\frac{(x_i - x_{oi})^2}{x_{oi}}
+\end{equation}
+Gdzie $x_i$ to wartości pomiarowe danej wielkości, $x_{oi}$ wartość oczekiwana tej wielkości podlegającej określonemu rozkładowi statystycznemu, natomiast $r$ to liczba pomiarów. Korzystając z tabel statystycznych możemy określić wartość $\chi^2_\alpha$. Jeżeli $\chi^2 < \chi^2_\alpha$ to nie mamy podstaw do odrzucenia założonej hipotezy. Można zatem przyjąć, że nie występują tu żadne inne rodzaje błędów oprócz błędów o charakterze fluktuacji statystycznych.
+\begin{figure}[h!]
+	\centering
+	\label{charakterystyka}
+	\includegraphics[width = 0.5\linewidth]{images/charakterystyka}
+	\caption{Charakterystyka licznika Geigera-Mullera [\ref{uklad}]}
+\end{figure}
+\subsection{Wykonanie ćwiczenia}
+Ćwiczenie rozpoczęto od zapoznania się z układem pomiarowym składającym się z:
+\begin{itemize}
+	\item \textbf{Domek pomiarowy}
+	\item \textbf{Licznik Geigera-Mullera}
+	\item \textbf{Wtórnik}
+	\item \textbf{Zasilacz wysokiego napięcia}
+	\item \textbf{Dyskryminator amplitudy}
+	\item \textbf{Przelicznik}
+	\item \textbf{Zasilacz niskiego napięcia}
+\end{itemize}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width = 0.7\linewidth]{images/uklad}
+	\caption{Schemat blokowy zestawu pomiarowego [\ref{uklad}]}
+\end{figure}
+Umieszczono źródło punktowe $^{137}$Cs w domku pomiarowym blisko licznika. W celu określenia napięcia progowego ustawiono długi czas pomiaru wynoszący 1000s i powoli zwiększano napięcie. Następnie wyznaczono charakterystykę licznika przeprowadzając pomiary co 20V w zakresie od 60V poniżej napięcia progowego do 200V powyżej tego napięcia. Czas trwania pojedynczego pomiaru wyznaczono tak, aby liczba zliczeń w plateau wynosiła około 1000. Następnie źródło umieszczono na zewnątrz domku pomiarowego w celu osiągnięcia średnio jednego zliczenia na sekundę. Wykonano 100 takich jednosekundowych pomiarów. Kolejno wykonano 100 pomiarów przy źródle umieszczonym w domku na samym dole oraz 200 pomiarów przy źródle umieszczonym na samej górze.
+\newpage
+\subsection{Wyniki pomiarów}
+\begin{itemize}
+	\item \textbf{Wyznaczenie charakterystyki licznika G-M}
+\begin{table}[h!]
+\centering
+	\label{plateau}
+	\caption{Wyniki pomiarów zliczeń w zależności od napięcia.}
+	\begin{tabular}{|C{2cm}|C{2cm}|C{2.5cm}|C{3cm}|}\hline
+				&	Napięcie [V] & Liczba zliczeń & Liczba zliczeń na sekundę \\ \hline
+		1	&	1200	&	0		&	0,0 \\ \hline
+		2	&	1220	&	0		&	0,0 \\ \hline
+		3	&	1240	&	0		&	0,0 \\ \hline
+		4	&	1260	&	56		&	2,8 \\ \hline
+		5	&	1280	&	808		&	40,4 \\ \hline
+		6	&	1300	&	857		&	42,9 \\ \hline
+		7	&	1320	&	900		&	45,0 \\ \hline
+		8	&	1340	&	857		&	42,9 \\ \hline
+		9	&	1360	&	891		&	44,6 \\ \hline
+		10	&	1380	&	866		&	43,3 \\ \hline
+		11	&	1400	&	907		&	45,4 \\ \hline
+		12	&	1420	&	920		&	46,0 \\ \hline
+		13	&	1440	&	927		&	46,4 \\ \hline
+		14	&	1460	&	907		&	45,4 \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{figure}[h!]
+	\fontsize{6}{8}\selectfont % zmniejszam czcionke
+	\centering
+	\resizebox{0.7\textwidth}{!}{\input{plateau}}	
+	
+	\caption{Wykres zależności liczby zliczeń od napięcia.}
+	\label{wykres_plateau}
+\end{figure}
+
+Na wykres [\ref{wykres_plateau}] naniesiono punkty $(U_A,J_A)$ oraz $(U_B,J_B)$.
+
+\begin{table}[h!]
+\centering
+	\begin{tabular}{|C{2cm}|C{2.5cm}|}\hline
+	$J_A = 808$ & $U_A  = 1280$ V \\ \hline
+	$J_B = 907$ & $U_B  = 1460$ V \\ \hline
+	\end{tabular}
+\end{table}
+
+
+Korzystając ze wzoru \ref{nachylenie} obliczono nachylenie $\alpha = 12,25 \%$ przypadające na $180$ V. Łatwo wyliczyć, że nachylenie na 100 V wynosi:
+\begin{equation*}
+	\alpha = 6,73 \%
+\end{equation*}
+\item \textbf{Pomiar liczby zliczeń ze źródłem na zewnątrz domku pomiarowego}\\
+Następnie wykonano sto pomiarów dla źródła umieszczonego w takiej odległości poza domkiem aby średnio obserwować jedno zliczenie na sekundę. Wyniki pomiarów przedstawiono na wykresie \ref{hist1}. Razem z otrzymanym rozkładem przedstawiono rozkład teoretyczny(Poissona) wynikający ze wzoru \ref{poisson}. Obliczenia oparto na wyliczonej średniej arytmetycznej $\lambda = 0,86$ zliczeń na sekundę.
+\begin{figure}[h!]
+	\fontsize{6}{8}\selectfont % zmniejszam czcionke
+	\centering
+	\resizebox{0.9\textwidth}{!}{\input{histogram1}}	
+	
+	\caption{Histogram}
+	\label{hist1}
+\end{figure}
+
+Obliczono wartość $\chi^2$ korzystając ze wzoru \ref{chi}. Otrzymano wynik $3,04$ następnie korzystając z tablic statystycznych [\ref{przybycien}] odczytano wartość krytyczną dla przedziału ufności $0,05$ oraz liczby stopni swobody $5$ wynikającej z liczby obserwacji $6$ pomniejszonej o jeden estymowany parametr. Odczytana wartość $\chi^2_\alpha = 4.35 $ jest mniejsza od $\chi^2$ zatem nie ma podstaw by odrzucić hipotezę iż dany rozkład jest rozkładem Poissona.
+
+\item \textbf{Pomiar liczby zliczeń ze źródłem na najniższym poziomie domku pomiarowego}
+Badana źródło umieszczono wewnątrz domku pomiarowego tak, aby obserwować około 5 zliczeń w przedziale czasowym trwającym $1$ sekundę. Wykonano 100 takich pomiarów. Na rysunku \ref{hist2} przedstawiono histogram otrzymanego rozkładu oraz histogram rozkładu teoretycznego o $\lambda = 4,75$. W tabeli \ref{czestosc2} przedstawiono wyniki obliczeń składowych $\chi^2$ oraz ostateczny wynik.
+
+
+\begin{figure}[h!]
+	\fontsize{6}{8}\selectfont % zmniejszam czcionke
+	\centering
+	\resizebox{0.8\textwidth}{!}{\input{histogram2.tex}}
+	
+	\caption{Histogramy otrzymanego rozkładu oraz rozkładu Poissona o $\lambda = 4,75$}
+	\label{hist2}
+\end{figure}
+
+
+\begin{table}[h!]
+\centering
+\label{czestosc2}
+\caption{Wyniki pomiarów liczby zliczeń dla źródła na najniższym poziomie domku pomiarowego}
+	\begin{tabular}{|C{2cm}|C{2cm}|C{2cm}|C{3cm}|}\hline
+			Liczba zliczeń & Częstość & Częstość teoretyczna & $(x-x_{oi})^2/x_{oi}$ \\ \hline
+			0	&	1		&	0,87	&	0,02 \\ \hline
+			1	&	6		&	4,11	&	0,87 \\ \hline
+			2	&	13		&	9,76	&	1,08 \\ \hline
+			3	&	10		&	15,45	&	1,92 \\ \hline
+			4	&	15		&	18,35	&	0,61 \\ \hline
+			5	&	21		&	17,43	&	0,73 \\ \hline
+			6	&	15		&	13,80	&	0,10 \\ \hline
+			7	&	6		&	9,37	&	1,21 \\ \hline
+			8	&	5		&	5,56	&	0,06 \\ \hline
+			9	&	5		&	2,93	&	1,45 \\ \hline
+			10	&	2		&	1,39	&	0,26 \\ \hline
+			11	&	1		&	0,60	&	0,26 \\ \hline
+			12	&	0		&	0,24	&	0,24 \\ \hline
+				&			&	$\boldsymbol{\chi^2}$		& \textbf{8,82} \\ \hline
+
+	\end{tabular}
+
+\end{table}
+Tablice statystyczne \ref{przybycien} przewidują dla 12 stopni swobody i przedziału ufności 0,05 wartość krytyczną: $21,03$, która jest mniejsza od wyliczonej $\chi^2$. Nie mamy zatem podstaw aby odrzucić hipotezę, że ten rozkład jest rozkładem Poissona.
+\newpage
+\item \textbf{Źródło umieszczone bardzo blisko licznika} \\
+	Źródło umieszczono na najwyższym szczeblu domku pomiarowego. Wykonano 200 pomiarów o czasie trwania równym 1s.
+Otrzymane wyniki przedstawiono tabeli \ref{wyniki_gauss}. Otrzymane rozkłady przedstawiono na wykresie \ref{hist3}. Przy pomocy arkusza kalkulacyjnego wyliczono wartość oczekiwaną $\mu = 543,40$ oraz odchylenie standardowe $\sigma = 18,30$. Dla liczby stopni swobody równej 23 oraz przedziału ufności tablice statystyczne przewidują wartość $\chi^2_\alpha = 35,17$. Jak wynika z tabeli \ref{wyniki_gauss} otrzymana wartość $\chi^2 = 23,22$ jest mniejsza od wartości krytycznej, zatem tak jak w poprzednich przypadkach nie mamy podstaw odrzucić hipotezy, że otrzymany rozkład jest rozkładem normalnym.
+
+\begin{table}[h!]
+\centering
+\label{wyniki_gauss}
+\caption{Wyniki pomiarów liczby zliczeń dla źródła umieszczonego bardzo blisko licznika.}
+	\begin{tabular}{|C{2cm}|C{2cm}|C{2cm}|C{3cm}|C{3cm}|}\hline
+			&	Przedział	&	Częstość		& Wartość teoretyczna  & $(x-x_{oi})^2/x_{oi}$ \\ \hline
+		1	&	$(-\infty)–500$&	0	&	1,31	&	1,31 \\ \hline
+		2	&	500-505 &	1	&	2,41	&	0,83 \\ \hline
+		3	&	505-510 &	2	&	4,12	&	1,09 \\ \hline
+		4	&	510-515 &	7	&	6,54	&	0,03 \\ \hline
+		5	&	515-520 &	6	&	9,63	&	1,37 \\ \hline
+		6	&	520-525 &	13	&	13,15	&	0,00 \\ \hline
+		7	&	525-530 &	23	&	16,68	&	2,40 \\ \hline
+		8	&	530-535 &	20	&	19,63	&	0,01 \\ \hline
+		9	&	535-540 &	29	&	21,43	&	2,67 \\ \hline
+		10	&	540-545 &	21	&	21,72	&	0,02 \\ \hline
+		11	&	545-550 &	14	&	20,43	&	2,02 \\ \hline
+		12	&	550-555 &	11	&	17,83	&	2,62 \\ \hline
+		13	&	555-560 &	15	&	14,44	&	0,02 \\ \hline
+		14	&	560-565 &	12	&	10,86	&	0,12 \\ \hline
+		15	&	565-570 &	12	&	7,58	&	2,58 \\ \hline
+		16	&	570-575 &	7	&	4,90	&	0,90 \\ \hline
+		17	&	575-580 &	2	&	2,95	&	0,30 \\ \hline
+		18	&	580-585 &	1	&	1,64	&	0,25 \\ \hline
+		19	&	585-590 &	1	&	0,85	&	0,03 \\ \hline
+		20	&	590-595 &	1	&	0,41	&	0,86 \\ \hline
+		21	&	595-600 &	1	&	0,18	&	3,68 \\ \hline
+		22	&	600-605 &	0	&	0,08	&	0,08 \\ \hline
+		23	&	605-610 &	0	&	0,03	&	0,03 \\ \hline
+		24	&	$ 610-(+\infty)$&	0	&	0,01	&	0,01 \\ \hline
+			&		&		&	$\boldsymbol{\chi^2}$		& \textbf{23,22} \\ \hline
+
+
+	\end{tabular}
+
+\end{table}
+
+
+\begin{figure}[h!]
+	\fontsize{6}{8}\selectfont % zmniejszam czcionke
+	\centering
+	\resizebox{0.9\textwidth}{!}{\input{histogram3.tex}}
+	
+	\caption{Histogramy otrzymanego rozkładu oraz rozkładu Gaussa}
+	\label{hist3}
+\end{figure}
+
+
+
+
+\end{itemize}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% SREBRO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Czas połowicznego rozpadu srebra.}
 \subsection{Cel ćwiczenia.}
